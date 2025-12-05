@@ -1,0 +1,206 @@
+<div class="gmm-forge forge--action layout--{{gmm.forge.layout}} color--primary-{{gmm.forge.colors.primary}} color--secondary-{{gmm.forge.colors.secondary}} {{#if gmm.gui._isExpanded}}expanded{{/if}} {{cssClass}}">
+	<div class="forge__artifact">
+		{{#if gmm.action }}
+			{{#> (getTemplate (concat 'action/skins/' gmm.forge.skins.artifact '/artifact.html')) }}
+				<div class="gmm-artifact">
+					<div class="artifact__error">
+						<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
+						<div class="error__advice">{{localize 'gmm.action.errors.invalid_action'}}</div>
+					</div>
+				</div>
+			{{/undefined}}
+		{{else}}
+			<div class="gmm-artifact">
+				<div class="artifact__error">
+					<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
+					<div class="error__advice">{{localize 'gmm.action.errors.missing_action'}}</div>
+				</div>
+			</div>
+		{{/if}}
+	</div>
+	<div class="forge__blueprint">
+		{{#if gmm.blueprint }}
+			{{#> (getTemplate (concat 'action/skins/' gmm.forge.skins.blueprint '/blueprint.html')) }}
+				<div class="gmm-blueprint">
+					<div class="blueprint__error">
+						<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
+						<div class="error__advice">{{localize 'gmm.action.errors.invalid_blueprint'}}</div>
+					</div>
+				</div>
+			{{/undefined}}
+		{{else}}
+			<div class="gmm-blueprint">
+				<div class="blueprint__error">
+					<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
+					<div class="error__advice">{{localize 'gmm.action.errors.missing_blueprint'}}</div>
+				</div>
+			</div>
+		{{/if}}
+	</div>
+	<div class="forge__options">
+		<div class="forge__id">
+			<span class="id">{{item.id}}</span>
+			<span class="name">Giffyglyph's 5e Scaling Action</span>
+		</div>
+		<nav class="forge__controls" data-group="primary">
+			<button type="button" data-action="open-modal" data-modal="modal_bugs"><i class="fas fa-bug"></i></button>
+			<button type="button" data-action="open-modal" data-modal="modal_about"><i class="fas fa-question"></i></button>
+			<button type="button" data-action="expand-window"><i class="fas fa-cogs"></i></button>
+		</nav>
+	</div>
+	<div class="forge__modals">
+		<div class="gmm-modal modal--about" id="modal_about">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-question"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">{{localize 'gmm.modal.info.about.title'}}</div>
+					<div class="modal__subtitle">{{localize 'gmm.modal.info.about.subtitle'}}</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<p class="intro">{{{localize 'gmm.modal.info.about.p.1' pdf='https://giffyglyph.com/monstermaker'}}}</p>
+					<div class="support">
+						<p class="support__title">{{localize 'gmm.modal.info.about.support'}}</p>
+						<p class="support__title">{{localize 'gmm.modal.info.about.supportsubtitle'}}</p>
+						<p>{{{localize 'gmm.modal.info.about.p.2'}}}</p>
+						<ul class="support__links">
+							<li><a class="patreon" href="https://www.patreon.com/bePatron?u=12684623"><i class="fab fa-fw fa-patreon"></i> {{{localize 'gmm.modal.info.about.patreon'}}}</a></li>
+							<li><a class="kofi" href="https://ko-fi.com/giffyglyph#checkoutModal"><i class="fas fa-fw fa-heart"></i> {{{localize 'gmm.modal.info.about.kofi'}}}</a></li>
+						</ul>
+						<ul class="contact_links">
+							<li>
+								<a class="reddit" href="https://reddit.com/r/darkerdungeons5e">
+									<i class="fab fa-fw fa-reddit-alien"></i>
+								</a>
+							</li>
+							<li>
+								<a class="youtube" href="https://youtube.com/giffyglyph">
+									<i class="fab fa-fw fa-youtube"></i>
+								</a>
+							</li>
+							<li>
+								<a class="twitter" href="https://twitter.com/giffyglyph">
+									<i class="fab fa-fw fa-twitter"></i>
+								</a>
+							</li>
+							<li>
+								<a class="facebook" href="https://facebook.com/giffyglyph">
+									<i class="fab fa-fw fa-facebook"></i>
+								</a>
+							</li>
+							<li>
+								<a class="twitch" href="https://twitch.com/giffyglyph">
+									<i class="fab fa-fw fa-twitch"></i>
+								</a>
+							</li>
+							<li>
+								<a class="website" href="https://www.giffyglyph.com">giffyglyph.com</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal modal--bugs" id="modal_bugs">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-bug"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">{{localize 'gmm.modal.info.bugs.title'}}</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<p class="intro">{{{localize 'gmm.modal.info.bugs.intro'}}}</p>
+					<a class="github" href="https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/issues"><i class="fab fa-github fa-fw"></i> github.com/skyl3lazer</a>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal modal--shortcodes" id="modal_shortcodes">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-calculator"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">Automated Shortcodes</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<p class="intro">You can use <strong>shortcodes</strong> to automatically insert data from a parent monster. Note: this only occurs when the item is attached to a <i>Giffyglyph</i> monsters—shortcodes are otherwise left as-is.</p>
+					<div class="gmm-accordion">
+						<div class="accordion-section">
+							<div class="accordion-section__header">Randomised Dice Rolls</div>
+							<div class="accordion-section__body">
+								<p>Insert randomised dice rolls with a special shortcode. You can use any dice size, as shown below:</p>
+								<blockquote>
+									<p>[12, d4] = 4d4 + 2</p>
+									<p>[25, d12] = 3d12 + 6</p>
+									<p>[66, d30] = 4d30 + 4</p>
+								</blockquote>
+							</div>
+						</div>
+						<div class="accordion-section">
+							<div class="accordion-section__header">Shortcodes</div>
+							<div class="accordion-section__body">
+								<p>Use <strong>shortcodes</strong> to pull data out of a <i>Giffyglyph</i> monster and insert it into your text. There are currently 24 shortcodes for you to try:</p>
+								<blockquote>
+									<p>[name] [level] [attackBonus] [damage] [damageDie] [ac] [hpMax] [dcPrimaryBonus] [maxMod] [strMod] [strSave] [dexMod] [dexSave] [conMod] [conSave] [intMod] [intSave] [wisMod] [wisSave] [chaMod] [chaSave] [xp] [proficiency] [cr]</p>
+								</blockquote>
+							</div>
+						</div>
+						<div class="accordion-section">
+							<div class="accordion-section__header">Shortcode Modifiers</div>
+							<div class="accordion-section__body">
+								<p>Use mathematical modifiers with your shortcodes to transform the final number and apply specific rounding. For example:</p>
+								<blockquote>
+									<p>[level * 2] = Monster Level x 2</p>
+									<p>[damage + 4] = Attack Damage + 4</p>
+									<p>[damage + 4] = Attack Damage + 4</p>
+									<p>[(hp / 3) + 10] = (Hit Points / 3) + 10</p>
+									<p>[round(damage / 4)] = Attack Damage / 4, rounded</p>
+									<p>[ceil(damage / 4)] = Attack Damage / 4, rounded up</p>
+									<p>[floor(damage / 4)] = Attack Damage / 4, rounded down</p>
+									<p>[dcPrimaryBonus + maxMod] = The monster's save DC modified by their highest Mod</p>
+								</blockquote>
+							</div>
+						</div>
+						<div class="accordion-section">
+							<div class="accordion-section__header">Shortcodes and Dice</div>
+							<div class="accordion-section__body">
+								<p>Add a dice value to a shortcodes to transform it into a dice roll. For example:</p>
+								<blockquote>
+									<p>[damage, d8] = Attack Damage (shown in d8)</p>
+									<p>[12 + strMod, d20] = 12 + Strength Mod (shown in d20)</p>
+									<p>[10 * level, d6] = 10 * Level (shown in d6)</p>
+									<p>[damage, damageDie] = Attack Damage (shown in the default die for the monster)</p>
+								</blockquote>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal modal--scaling" id="modal_scaling">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-chart-line"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">Scaling Attacks</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<p class="intro">When paired with a <i>Giffyglyph</i> monster, a scaling attack will automatically take into account the monster's <strong>proficiency bonus</strong> and the attack's <strong>relevant ability mod</strong>.</p>
+					<p>Use these to easily create features and attacks that work at every monster level.</p>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal modal--scaling" id="modal_deferral">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-timer"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">Deferrals</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<p class="intro">When using an <i>uncommon</i> or <i>rare</i> feature, you can use a <i>deferral</i> to change when it chooses targets, makes attacks, or applies effects. A fireball becomes a ticking bomb, a punch becomes a dooming fist of death, a healing power becomes a regeneration, etc.</p>
+					<p>There are two types of deferral: <strong>delayed</strong>, which wait for a time before choosing a target and making attacks, and <strong>dooming</strong>, which choose a target immediately but give them a chance to react, <i>dispel</i>, or find <i>respite</i> from before they happen.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

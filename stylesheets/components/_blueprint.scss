@@ -1,0 +1,589 @@
+.gmm-blueprint {
+	border: 0.125rem solid white;
+	overflow: hidden;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	border-radius: 1rem;
+	height: 100%;
+	filter: saturate(0.25);
+	padding: 2px;
+	background: var(--color-primary-tint-2);
+
+	::-webkit-scrollbar {
+		width: 1rem;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 1rem;
+		background: var(--color-primary-shade-1);
+		border: 2px solid var(--color-primary-tint-2);
+	}
+
+	::-webkit-scrollbar-track {
+		box-shadow: none;
+		border-radius: 1rem;
+		background: var(--color-primary-tint-1);
+		border: 5px solid var(--color-primary-tint-2);
+	}
+
+	.blueprint__header {
+		background: black;
+		color: white;
+		padding: 0.25rem;
+		flex-shrink: 0;
+		display: flex;
+		font-size: 1.5rem;
+		text-align: center;
+		font-family: 'Londrina Solid';
+		align-items: center;
+		border-top-left-radius: 0;
+		border-bottom-right-radius: 0;
+		background: var(--color-primary-shade-2);
+		filter: drop-shadow(0 2px 0 var(--color-primary-shade-4));
+		position: relative;
+		z-index: 1;
+		border-radius: 0.75rem;
+	}
+
+	.blueprint__icon {
+		height: 2rem;
+		width: 2rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: var(--color-primary-shade-4);
+		border-radius: 0.5rem;
+		margin-right: 0.5rem;
+		font-size: 1rem;
+	}
+
+	.blueprint__title {
+		flex-grow: 1;
+		text-align: left;
+	}
+
+	.blueprint__options {
+		display: flex;
+
+		button {
+			flex-shrink: 0;
+			width: 2rem;
+			height: 2rem;
+			margin: 0;
+			background: none;
+			border: none;
+			border-radius: 1rem;
+			background: var(--color-primary-shade-1);
+			color: white;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+
+			&:hover,
+			&:focus {
+				background: var(--color-primary-base);
+				text-shadow: none;
+				box-shadow: none;
+			}
+
+			i {
+				margin: 0;
+			}
+
+			+ * {
+				margin-left: 0.25rem;
+			}
+		}
+	}
+
+	.blueprint__body {
+		padding: 2px 1px 2px 0;
+		margin: calc(0.25rem - 2px) -1px -2px 0;
+		overflow-y: auto;
+		flex-grow: 1;
+		border-radius: 0.75rem;
+	}
+
+	.blueprint__form {
+
+		.form-group {
+			margin: 0;
+			position: relative;
+			align-items: normal;
+
+			+ .form-group {
+				border-top: 1px solid var(--color-primary-tint-4);
+			}
+		}
+
+		.form-group__header {
+			flex-shrink: 0;
+			margin: 0;
+			font-weight: bold;
+			padding: 0.5rem 0.5rem;
+			box-sizing: border-box;
+			background: var(--color-primary-tint-5);
+			line-height: 1;
+			min-height: 1.5rem;
+			text-align: right;
+			color: var(--color-primary-shade-4);
+			width: 8rem;
+			flex: unset;
+			/*white-space: nowrap;
+			overflow: hidden;*/
+			text-overflow: ellipsis;
+		}
+
+		.form-group__body {
+			min-height: 1.5rem;
+			overflow: hidden;
+
+			input,
+			select {
+				display: block;
+				width: 100%;
+				padding: 0 .5rem;
+				line-height: 1;
+				background-color: #fff;
+				background-clip: padding-box;
+				border: 0;
+				border-radius: 0;
+				margin: 0;
+				height: 2rem;
+
+				+ input,
+				+ select {
+					border-top: 1px solid var(--color-primary-tint-4);
+				}
+
+				&:focus {
+					outline: 2px solid white;
+					box-shadow: none;
+				}
+			}
+
+			select {
+				padding-left: 0.25rem;
+			}
+
+			input[type="checkbox"] {
+				height: 1.5rem;
+				width: 1.5rem;
+				margin-left: 0.5rem;
+				margin-top: 0.25rem;
+
+				&:hover {
+					cursor: pointer;
+				}
+
+				&:focus {
+					outline: none;
+				}
+			}
+
+			.html-field {
+
+				.editor-content {
+					padding: 0.5rem;
+					min-height: 4rem;
+					white-space: normal;
+					word-break: break-word;
+
+					> :first-child {
+						margin-top: 0;
+					}
+
+					> :last-child {
+						margin-bottom: 0;
+					}
+				}
+
+				.editor-edit {
+					top: 1rem;
+					right: 1rem;
+					border-radius: 1rem;
+					background: var(--color-primary-base);
+					border: none;
+					color: white;
+					font-size: 1rem;
+					padding: 0;
+					border: none;
+					box-shadow: none;
+					height: 2rem;
+					width: 2rem;
+					line-height: 2rem;
+					text-align: center;
+				}
+
+				.tox {
+					min-height: 15rem !important;
+
+					.tox-toolbar__group {
+						padding: 0;
+					}
+
+					.tox-tbtn {
+						margin: 0;
+						height: 30px;
+						width: 30px;
+						padding: 0;
+
+						&:hover {
+							background: var(--color-primary-tint-3);
+							cursor: pointer;
+						}
+					}
+
+					.tox-tbtn[title="Formats"] {
+						width: 90px;
+					}
+				}
+
+				.tox-toolbar-overlord,
+				.tox-toolbar__primary {
+					background: none !important;
+				}
+
+				.tox-editor-header {
+					background: var(--color-primary-tint-5);
+					padding: 0.25rem;
+				}
+
+				.tox-edit-area__iframe {
+					padding: 0.5rem;
+				}
+			}
+
+			.form-group__options {
+				position: absolute;
+				right: 0;
+				top: 0;
+				height: 2rem;
+				display: flex;
+				align-items: center;
+
+				button {
+					background: none;
+					border: none;
+					height: 2rem;
+					width: 2rem;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					opacity: 0.25;
+
+					i {
+						margin: 0;
+					}
+
+					&:hover,
+					&:focus {
+						opacity: 1;
+						color: white;
+						box-shadow: none;
+						cursor: pointer;
+					}
+				}
+			}
+
+			.checkboxes {
+				padding: 0.5rem;
+
+				.checkbox {
+					display: inline-flex;
+					width: 100%;
+					font-size: inherit;
+					height: auto;
+					align-items: flex-start;
+					padding: 0;
+					line-height: 1rem;
+
+					&:hover {
+						cursor: pointer;
+					}
+
+					input {
+						margin: 0;
+						top: 0;
+						display: inline-block;
+						margin-right: 0.25rem;
+						height: 1rem;
+						width: 1rem;
+					}
+
+					&:not(:last-child) {
+						margin-bottom: 0.25rem;
+					}
+				}
+			}
+
+			table {
+				background: none;
+				border: none;
+				margin: 0;
+
+				thead {
+					color: var(--color-primary-shade-2);
+					background: var(--color-primary-tint-3);
+					text-shadow: none;
+					border: none;
+					line-height: 1.5;
+					font-size: smaller;
+				}
+
+				&.table--bordered {
+
+					th,
+					td {
+
+						&:not(:first-child) {
+							border-left: 1px solid var(--color-primary-tint-4);
+						}
+					}
+
+					tbody tr:not(:last-child) {
+						border-bottom: 1px solid var(--color-primary-tint-4);
+					}
+				}
+			}
+
+			&.form-group__body--row {
+				display: flex;
+
+				> * {
+					border: none;
+
+					&:focus {
+						outline: none;
+					}
+
+					&:not(:first-child) {
+						border-left: 2px solid var(--color-primary-tint-3);
+						border-top-left-radius: 1rem;
+						border-bottom-left-radius: 1rem;
+					}
+				}
+
+				span.text {
+					display: flex;
+					align-items: center;
+					border-left: none;
+					margin: 0.125rem 0;
+					background: var(--color-primary-tint-1);
+					border-radius: 1rem;
+					padding: 0.125rem 0.75rem;
+					color: white;
+					align-self: center;
+
+					&:first-child {
+						margin-left: 0.5rem;
+					}
+
+					+ * {
+						border-left: none;
+						border-top-left-radius: 0;
+						border-bottom-left-radius: 0;
+					}
+				}
+			}
+		}
+
+		.form-fieldset {
+
+			.form-fieldset__header {
+				border-right: none;
+				text-align: left;
+				text-transform: uppercase;
+				padding: 0 0.5rem 0 1.75rem;
+				background: var(--color-primary-tint-4);
+				min-height: auto;
+				line-height: 1.5rem;
+				position: relative;
+				font-weight: bold;
+				font-size: smaller;
+				color: var(--color-primary-shade-1);
+				display: flex;
+				justify-content: space-between;
+
+				&::after {
+					content: "\f07c";
+					-webkit-font-smoothing: antialiased;
+					font-family: "Font Awesome 5 Free";
+					font-weight: bold;
+					display: inline-block;
+					font-style: normal;
+					font-variant: normal;
+					text-rendering: auto;
+					line-height: 1;
+					position: absolute;
+					left: 0.25rem;
+					width: 1.25rem;
+					height: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					color: var(--color-primary-base);
+					font-size: larger;
+				}
+
+				&:hover {
+					color: white;
+					cursor: pointer;
+				}
+
+				button {
+					background: var(--color-primary-tint-2);
+					color: white;
+					font-weight: bold;
+					line-height: 1.5;
+					padding: 0 0.75rem;
+					border-radius: 1rem;
+					cursor: pointer;
+					border: none;
+					width: auto;
+					font-size: inherit;
+					align-self: center;
+					margin: 0;
+
+					i {
+						margin: 0;
+					}
+
+					&:hover {
+						box-shadow: none;
+						background: var(--color-primary-base);
+					}
+				}
+			}
+
+			&.closed .form-fieldset__header::after {
+				content: "\f07b";
+				font-weight: 400;
+			}
+		}
+
+		.form-footer {
+			background: var(--color-primary-tint-5);
+			text-align: right;
+			padding: 0.5rem 0.25rem;
+
+			button {
+				background: var(--color-primary-base);
+				color: white;
+				font-weight: bold;
+				line-height: 1.5;
+				padding: 0 1rem;
+				border-radius: 1rem;
+				cursor: pointer;
+				border: none;
+				width: auto;
+
+				i {
+					margin: 0;
+				}
+
+				&:hover {
+					box-shadow: none;
+					background: var(--color-primary-shade-2);
+				}
+			}
+		}
+	}
+
+	.blueprint__error {
+		flex-grow: 1;
+		text-align: center;
+		font-size: 1.5rem;
+		padding: 2rem;
+		background: var(--color-primary-tint-2);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		color: white;
+
+		.error__icon {
+			border: 2px solid white;
+			font-size: 3rem;
+			height: 4rem;
+			width: 4rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 1rem;
+			margin-bottom: 1rem;
+		}
+	}
+
+	.button--help {
+		width: 1rem;
+		border: none;
+		padding: 0;
+		font-size: 10px;
+		line-height: inherit;
+		margin: 0;
+		height: 1rem;
+		background: var(--color-primary-tint-3);
+		color: white;
+		border-radius: 1rem;
+		text-align: center;
+		margin-left: -0.25rem;
+		float: left;
+		margin-right: 0.5rem;
+		flex-shrink: 0;
+
+		&:hover {
+			cursor: pointer;
+			box-shadow: none;
+			background: var(--color-primary-base);
+		}
+
+		i {
+			margin: 0;
+		}
+	}
+
+	.blueprint__form-options {
+
+		.accordion-section.opened {
+			border-bottom-left-radius: 0.75rem;
+			border-bottom-right-radius: 0.75rem;
+			overflow: hidden;
+
+			&:not(:last-child) {
+				margin-bottom: 0.25rem;
+			}
+
+			+ .accordion-section {
+				border-top-left-radius: 0.75rem;
+				border-top-right-radius: 0.75rem;
+				overflow: hidden;
+				border-top: none;
+			}
+		}
+
+		.accordion-section__header {
+			padding-right: 0.5rem;
+			line-height: 1.75rem;
+			padding-left: 1.75rem;
+
+			&::before {
+				width: 1.25rem;
+				height: 1.25rem;
+			}
+
+			.button--help {
+				margin: 0;
+				line-height: 1;
+			}
+		}
+
+		;
+
+		.accordion-section__body {
+			padding: 0;
+		}
+	}
+}
